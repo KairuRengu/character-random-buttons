@@ -1,0 +1,49 @@
+Sub RandomButton1()
+    Dim RandomNumber As Integer
+    RandomNumber = Int((50 - 1 + 20) * Rnd(2) + 1)
+    For x = 1 To 7
+        ActiveSheet.Cells(x, 1).Value = RandomNumber
+        RandomNumber = Int((20 - 1 + 1) * Rnd + 1)
+    Next x
+    
+End Sub
+
+Sub RandomButton2()
+    Dim RandomNumber As Integer
+    RandomNumber = Int((20 - 1 + 1) * Rnd + 1)
+    For x = 1 To 7
+        ActiveSheet.Cells(x, 3).Value = RandomNumber
+        RandomNumber = Int((20 - 1 + 1) * Rnd + 1)
+    Next x
+    
+End Sub
+
+Sub RandomButton3()
+    Dim RandomNumber As Integer
+    RandomNumber = Int((30 - 1 + 1) * Rnd + 1)
+    For x = 1 To 7
+        ActiveSheet.Cells(x, 5).Value = RandomNumber
+        RandomNumber = Int((20 - 1 + 1) * Rnd + 1)
+    Next x
+    
+End Sub
+
+Sub RandomButton4()
+    Dim RandomNumber As Integer
+    RandomNumber = Int((30 - 1 + 1) * Rnd + 1)
+    For x = 1 To 7
+        ActiveSheet.Cells(x, 7).Value = RandomNumber
+        RandomNumber = Int((20 - 1 + 1) * Rnd + 1)
+    Next x
+    
+End Sub
+
+Sub RandomButton5()
+    Dim RandomNumber As Integer
+    RandomNumber = Int((40 - 1 + 1) * Rnd + 1)
+    For x = 1 To 7
+        ActiveSheet.Cells(x, 9).Value = RandomNumber
+        RandomNumber = Int((20 - 1 + 1) * Rnd + 1)
+    Next x
+    
+End Sub
