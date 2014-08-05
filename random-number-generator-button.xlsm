@@ -1,134 +1,54 @@
-Sub RandomButton1()
-    Dim RandomNumber As Integer
-    For x = 2 To 7
-        If x = 2 Then
-            RandomNumber = Int((18 - 10) * Rnd + 10)
-            ActiveSheet.Cells(x, 1).Value = RandomNumber
-        ElseIf x = 3 Then
-            RandomNumber = Int((8 - 4) * Rnd + 5)
-            ActiveSheet.Cells(x, 1).Value = RandomNumber
-        ElseIf x = 4 Then
-            RandomNumber = Int((25 - 18) * Rnd + 18)
-            ActiveSheet.Cells(x, 1).Value = RandomNumber
-        ElseIf x = 5 Then
-            RandomNumber = Int((13 - 10) * Rnd + 10)
-            ActiveSheet.Cells(x, 1).Value = RandomNumber
-        ElseIf x = 6 Then
-            RandomNumber = Int((15 - 4) * Rnd + 4)
-            ActiveSheet.Cells(x, 1).Value = RandomNumber
-        ElseIf x = 7 Then
-            RandomNumber = Int((7 - 1) * Rnd + 1)
-            ActiveSheet.Cells(x, 1).Value = RandomNumber
-        End If
-        
-    Next x
-    ActiveSheet.Cells(1, 1).Value = Math.Round(ActiveSheet.Cells(4, 1).Value * 2.5)
-    
-    
-    
-End Sub
+Sub CreateMail()
 
-Sub RandomButton2()
-    Dim RandomNumber As Integer
-    For x = 2 To 7
-        If x = 2 Then
-            RandomNumber = Int((7 - 3) * Rnd + 3)
-            ActiveSheet.Cells(x, 3).Value = RandomNumber
-        ElseIf x = 3 Then
-            RandomNumber = Int((14 - 8) * Rnd + 8)
-            ActiveSheet.Cells(x, 3).Value = RandomNumber
-        ElseIf x = 4 Then
-            RandomNumber = Int((10 - 6) * Rnd + 6)
-            ActiveSheet.Cells(x, 3).Value = RandomNumber
-        ElseIf x = 5 Then
-            RandomNumber = Int((25 - 17) * Rnd + 17)
-            ActiveSheet.Cells(x, 3).Value = RandomNumber
-        ElseIf x = 6 Then
-            RandomNumber = Int((13 - 8) * Rnd + 8)
-            ActiveSheet.Cells(x, 3).Value = RandomNumber
-        ElseIf x = 7 Then
-            RandomNumber = Int((10 - 8) * Rnd + 8)
-            ActiveSheet.Cells(x, 3).Value = RandomNumber
+    Dim objOutlook As Object
+    Dim objMail As Object
+    Dim rngTo As Range
+    Dim Subject As String
+    Dim rngBody As Range
+    Dim EmailBody As String
+    Dim EmailFooter As String
+    Dim SearchTitleArray As New Collection
+    Dim SearchObject As Object
+    Dim SearchTitle As String
+
+    Do While SearchTitle <> "0"
+        SearchTitle = InputBox("Please enter the titles of the properties you wish to use (e.g. City), or type in 0 to stop:", "Getting Titles")
+        If SearchTitle <> "0" Then
+            SearchTitleArray.Add (SearchTitle)
         End If
-    Next x
-    ActiveSheet.Cells(1, 3).Value = Math.Round(ActiveSheet.Cells(4, 3).Value * 1.4)
+    Loop
+
+    For Each aString In SearchTitleArray
+        MsgBox (aString)
+    Next aString
     
-End Sub
+    EmailBody = ""
+    
+    Set objOutlook = CreateObject("Outlook.Application")
+    Set objMail = objOutlook.CreateItem(0)
+        With objMail
+            .Display
+        End With
+            EmailFooter = objMail.body
 
-Sub RandomButton3()
-    Dim RandomNumber As Integer
-    For x = 2 To 7
-        If x = 2 Then
-            RandomNumber = Int((20 - 1) * Rnd + 1)
-            ActiveSheet.Cells(x, 5).Value = RandomNumber
-        ElseIf x = 3 Then
-            RandomNumber = Int((20 - 1) * Rnd + 1)
-            ActiveSheet.Cells(x, 5).Value = RandomNumber
-        ElseIf x = 4 Then
-            RandomNumber = Int((20 - 1) * Rnd + 1)
-            ActiveSheet.Cells(x, 5).Value = RandomNumber
-        ElseIf x = 5 Then
-            RandomNumber = Int((20 - 1) * Rnd + 1)
-            ActiveSheet.Cells(x, 5).Value = RandomNumber
-        ElseIf x = 6 Then
-            RandomNumber = Int((20 - 1) * Rnd + 1)
-            ActiveSheet.Cells(x, 5).Value = RandomNumber
-        ElseIf x = 7 Then
-            RandomNumber = Int((20 - 1) * Rnd + 1)
-            ActiveSheet.Cells(x, 5).Value = RandomNumber
-        End If
-    Next x
-    ActiveSheet.Cells(1, 5).Value = Math.Round(ActiveSheet.Cells(4, 5).Value * 1.7)
-End Sub
 
-Sub RandomButton4()
-    Dim RandomNumber As Integer
-    For x = 2 To 7
-        If x = 2 Then
-            RandomNumber = Int((20 - 1) * Rnd + 1)
-            ActiveSheet.Cells(x, 7).Value = RandomNumber
-        ElseIf x = 3 Then
-            RandomNumber = Int((20 - 1) * Rnd + 1)
-            ActiveSheet.Cells(x, 7).Value = RandomNumber
-        ElseIf x = 4 Then
-            RandomNumber = Int((20 - 1) * Rnd + 1)
-            ActiveSheet.Cells(x, 7).Value = RandomNumber
-        ElseIf x = 5 Then
-            RandomNumber = Int((20 - 1) * Rnd + 1)
-            ActiveSheet.Cells(x, 7).Value = RandomNumber
-        ElseIf x = 6 Then
-            RandomNumber = Int((20 - 1) * Rnd + 1)
-            ActiveSheet.Cells(x, 7).Value = RandomNumber
-        ElseIf x = 7 Then
-            RandomNumber = Int((20 - 1) * Rnd + 1)
-            ActiveSheet.Cells(x, 7).Value = RandomNumber
-        End If
-    Next x
-    ActiveSheet.Cells(1, 7).Value = Math.Round(ActiveSheet.Cells(4, 7).Value * 1.9)
-End Sub
+    With ActiveSheet
+        Set rngTo = .Range("L2")
+        Subject = "Whatever"
+        Set rngBody = .Range("B4")
+    End With
 
-Sub RandomButton5()
-    Dim RandomNumber As Integer
-    For x = 2 To 7
-        If x = 2 Then
-            RandomNumber = Int((20 - 1) * Rnd + 1)
-            ActiveSheet.Cells(x, 9).Value = RandomNumber
-        ElseIf x = 3 Then
-            RandomNumber = Int((20 - 1) * Rnd + 1)
-            ActiveSheet.Cells(x, 9).Value = RandomNumber
-        ElseIf x = 4 Then
-            RandomNumber = Int((20 - 1) * Rnd + 1)
-            ActiveSheet.Cells(x, 9).Value = RandomNumber
-        ElseIf x = 5 Then
-            RandomNumber = Int((20 - 1) * Rnd + 1)
-            ActiveSheet.Cells(x, 9).Value = RandomNumber
-        ElseIf x = 6 Then
-            RandomNumber = Int((20 - 1) * Rnd + 1)
-            ActiveSheet.Cells(x, 9).Value = RandomNumber
-        ElseIf x = 7 Then
-            RandomNumber = Int((20 - 1) * Rnd + 1)
-            ActiveSheet.Cells(x, 9).Value = RandomNumber
-        End If
-    Next x
-    ActiveSheet.Cells(1, 9).Value = Math.Round(ActiveSheet.Cells(4, 9).Value * 2.2)
+    With objMail
+        .To = rngTo.Value
+        .Subject = Subject
+        .body = EmailBody & EmailFooter
+        .Send
+    End With
+
+    Set objOutlook = Nothing
+    Set objMail = Nothing
+    Set rngTo = Nothing
+    Subject = ""
+    Set rngBody = Nothing
+
 End Sub
