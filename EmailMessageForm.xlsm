@@ -1,0 +1,3 @@
+Private Sub Submit_Click()
+    Me.Hide
+End Sub
